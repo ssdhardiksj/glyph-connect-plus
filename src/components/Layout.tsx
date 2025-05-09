@@ -42,7 +42,7 @@ const Layout = () => {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.3 }}
-              className="w-full md:w-1/4 lg:w-1/4"
+              className="w-full md:w-1/4 lg:w-1/4 md:sticky md:top-20 md:self-start"
             >
               <RightSidebar />
             </motion.div>
