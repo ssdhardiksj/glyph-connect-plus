@@ -1,5 +1,5 @@
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import RightSidebar from "./RightSidebar";
@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 const Layout = () => {
   const isMobile = useIsMobile();
+  const location = useLocation();
   
   return (
     <div className="min-h-screen bg-linkedin-gray dark:bg-gray-900 transition-colors duration-200">
@@ -34,6 +35,7 @@ const Layout = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
+            key={location.pathname}
           >
             <Outlet />
           </motion.main>
