@@ -12,28 +12,31 @@ import Network from "./pages/Network";
 import Notifications from "./pages/Notifications";
 import Messages from "./pages/Messages";
 import NotFound from "./pages/NotFound";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="jobs" element={<Jobs />} />
-            <Route path="network" element={<Network />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="messages" element={<Messages />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <DarkModeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="jobs" element={<Jobs />} />
+              <Route path="network" element={<Network />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="messages" element={<Messages />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </DarkModeProvider>
   </QueryClientProvider>
 );
 
